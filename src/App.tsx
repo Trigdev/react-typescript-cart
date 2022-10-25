@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-lone-blocks */
+import React from "react";
+import { useGlobalContext } from "./context";
 
-function App() {
+/* components */
+import Navbar from "./Navbar";
+import CartContainer from "./CartContainer";
+
+// items
+
+const App = () => {
+  const { loading } = useGlobalContext();
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Navbar />
+      <CartContainer />
+    </main>
   );
-}
+};
 
 export default App;
