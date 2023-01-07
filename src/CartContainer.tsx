@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import React from "react";
 import CartItem from "./CartItem";
 import { useGlobalContext } from "./context";
 
-const CartContainer = () => {
+export interface ICartContainer {}
+
+const CartContainer: React.FC<ICartContainer> = (): React.ReactElement => {
   const { cart, total, clearCart } = useGlobalContext();
   if (cart.length === 0) {
     return (
@@ -35,8 +38,14 @@ const CartContainer = () => {
             total <span>${total}</span>
           </h4>
         </div>
-        <button className="btn clear-btn" onClick={clearCart}>
-          clear cart
+        <button
+          className="button-82-pushable"
+          role="button"
+          onClick={clearCart}
+        >
+          <span className="button-82-shadow"></span>
+          <span className="button-82-edge"></span>
+          <span className="button-82-front text">clear cart</span>
         </button>
       </footer>
     </section>

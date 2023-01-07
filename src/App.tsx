@@ -6,15 +6,15 @@ import { useGlobalContext } from "./context";
 import Navbar from "./Navbar";
 import CartContainer from "./CartContainer";
 
-// items
+export interface IApp {}
 
-const App = () => {
+const App: React.FC<IApp> = (): React.ReactElement => {
   const { loading } = useGlobalContext();
 
   if (loading) {
     return (
       <div className="loading">
-        <h1>Loading...</h1>
+        <div className="continuous-8"></div>
       </div>
     );
   }

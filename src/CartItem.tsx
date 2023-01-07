@@ -8,9 +8,16 @@ export interface CartItemProps {
   price: number;
   amount: number;
   key: any;
-};
+}
 
-const CartItem = ({ id, img, title, price, amount, key }: CartItemProps) => {
+const CartItem: React.FC<CartItemProps> = ({
+  id,
+  img,
+  title,
+  price,
+  amount,
+  key,
+}: CartItemProps): React.ReactElement => {
   const { remove, increase, decrease } = useGlobalContext();
 
   return (
